@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body {
+        background-color: #fcebb7;
+		--pixel-size: 10px;
+    }
+	@font-face {
+		font-family: 'pixel-font';
+		src: url('PixelatedElegance.ttf') format('truetype'); 
+		font-weight: normal;
+		font-style: normal;
+	}
+    #top, #bottom, #left, #right {
+		background: #c08d70;
+		position: fixed;
+		z-index: 0;
+	}
+	#left, #right {
+		top: 0; bottom: 0;
+		width: calc(var(--pixel-size)*1.25);
+		}
+		#left { left: 0; }
+		#right { right: 0; }
+		
+	#top, #bottom {
+		left: 0; right: 0;
+		height: calc(var(--pixel-size)*1.25);
+		}
+		#top { top: 0; }
+		#bottom { bottom: 0; }
+
+	#topleftflower, #toprightflower, #bottomleftflower, #bottomrightflower {
+		position:fixed;
+		z-index: 1;
+		width: calc(var(--pixel-size)*4);
+		height: calc(var(--pixel-size)*4);
+		image-rendering:pixelated;
+	}
+		#topleftflower {
+		left: calc(var(--pixel-size)/10);
+		top: calc(var(--pixel-size)/10);
+		transform: scale(.75);
+		}
+		#toprightflower {
+		right: calc(var(--pixel-size)/10);
+		top: calc(var(--pixel-size)/10);
+		transform: rotate(90deg) scale(.75);
+		}
+		#bottomrightflower {
+		right: calc(var(--pixel-size)/10);
+		bottom: calc(var(--pixel-size)/10);
+		transform: rotate(180deg) scale(.75);
+		}
+		#bottomleftflower {
+		left: calc(var(--pixel-size)/10);
+		bottom: calc(var(--pixel-size)/10);
+		transform: rotate(270deg) scale(.75);
+		}
+	#glorbenialabel {
+		position:fixed;
+		z-index:1;
+		image-rendering:pixelated;
+		top:10%;
+		transform: translate(-50%, -50%) scale(3);
+		left:auto;
+	}
+	#discordimg, #documentimg, #bankimg, #mailimg {
+		position:fixed;
+		z-index:3;
+		image-rendering:pixelated;
+		transform: translate(-50%, -50%) scale(2.75);
+		left:40%;
+	}
+	#documentimg {
+		top:35%;
+	}
+	#bankimg {
+		top:51.67%;
+	}
+	#discordimg {
+		top:68.33%;
+	}
+	#mailimg {
+		top:85%;
+	}
+	.buttony-class {
+		text-align:center;
+		color:#fcebb7;
+		font-family:'pixel-font' ;
+		align-content:center;
+		position:fixed;
+		background-color:#C18C72;
+		border:calc(var(--pixel-size)/3) solid #724254;
+		width:170px;
+		height:calc(var(--pixel-size)*3);
+		left:39%;
+		transform:translate(-100%, -40%)
+	}
+	.buttony-class:hover {
+		background-color:#724254;
+		border:calc(var(--pixel-size)/3) solid #C18C72;
+		cursor:pointer;
+	}
+
+	#newsbox {
+		position:fixed;
+		right:20%;
+		top:60%;
+		transform:translate(-50%, -50%) scale(3);
+		background-image: url("News\ Box.png");
+		width:59px;
+		height:82px;
+		image-rendering: pixelated;
+	}
+	#newsposts {
+		position:fixed;
+		width:90%;
+		height:80%;
+		transform:translate(4%,19%);
+	}
+</style>
+<head>
+
+</head>
+<body style="text-align:center;">
+    <div id="left"></div>
+    <div id="right"></div>
+    <div id="top"></div>
+    <div id="bottom"></div>
+
+	<img id="topleftflower"src="flower.png">
+	<img id="toprightflower"src="flower.png">
+	<img id="bottomleftflower"src="flower.png">
+	<img id="bottomrightflower"src="flower.png">
+
+	<img id="glorbenialabel"src="glorb.png">
+
+	<img id="discordimg"src="Discord.png">
+	<img id="documentimg"src="Document.png">
+	<img id="bankimg"src="Bank.png">
+	<img id="mailimg"src="Mail.png">
+
+	<button class="buttony-class" style="top:35%;">Sign Up!   </button>
+	<button  class="buttony-class" style="top:51.67%;">Visit Bank   </button>
+	<button class="buttony-class" onclick="window.open('https://discord.com')" style="top:68.33%;">Our Discord    </button> <!--ADD LINK FOR DISCORD INVITE-->
+	<button  class="buttony-class" onclick="window.open('mailto:webstate.mail@gmail.com')" style="top:85%;">Contact Us!   </button>
+
+	<div id="newsbox">
+		<div id="newsposts"></div>
+	</div>
+</body>
+</html>
