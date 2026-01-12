@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body {
+		--col1: #fcebb7; /*#fcebb7*/
+		--col2: #c08d70; /*#c08d70*/
+		--col3: #C18C72; /*#C18C72*/
+		--col4: #724254; /*#724254*/
+        background-color: var(--col1);
+		--pixel-size: 10px;
+    }
+	@font-face {
+		font-family: 'pixel-font';
+		src: url('../assets/static/PixelatedElegance.ttf') format('truetype'); 
+		font-weight: normal;
+		font-style: normal;
+	}
+    #top, #bottom, #left, #right {
+		background: var(--col2);
+		position: fixed;
+		z-index: 0;
+	}
+	#left, #right {
+		top: 0; bottom: 0;
+		width: calc(var(--pixel-size)*1.25);
+		}
+		#left { left: 0; }
+		#right { right: 0; }
+		
+	#top, #bottom {
+		left: 0; right: 0;
+		height: calc(var(--pixel-size)*1.25);
+		}
+		#top { top: 0; }
+		#bottom { bottom: 0; }
+
+	#topleftflower, #toprightflower, #bottomleftflower, #bottomrightflower {
+		position:fixed;
+		z-index: 1;
+		width: calc(var(--pixel-size)*4);
+		height: calc(var(--pixel-size)*4);
+		image-rendering:pixelated;
+	}
+		#topleftflower {
+		left: calc(var(--pixel-size)/10);
+		top: calc(var(--pixel-size)/10);
+		transform: scale(.75);
+		}
+		#toprightflower {
+		right: calc(var(--pixel-size)/10);
+		top: calc(var(--pixel-size)/10);
+		transform: rotate(90deg) scale(.75);
+		}
+		#bottomrightflower {
+		right: calc(var(--pixel-size)/10);
+		bottom: calc(var(--pixel-size)/10);
+		transform: rotate(180deg) scale(.75);
+		}
+		#bottomleftflower {
+		left: calc(var(--pixel-size)/10);
+		bottom: calc(var(--pixel-size)/10);
+		transform: rotate(270deg) scale(.75);
+		}
+	#glorbenialabel {
+		position:fixed;
+		z-index:1;
+		image-rendering:pixelated;
+		top:10%;
+		transform: translate(-50%, -50%) scale(6);
+		left:auto;
+	}
+	#discordimg, #documentimg, #bankimg, #mailimg {
+		position:fixed;
+		z-index:3;
+		image-rendering:pixelated;
+		transform: translate(-50%, -50%) scale(5.5);
+		left:40%;
+	}
+	#documentimg {
+		top:35%;
+	}
+	#bankimg {
+		top:51.67%;
+	}
+	#discordimg {
+		top:68.33%;
+	}
+	#mailimg {
+		top:85%;
+	}
+	.buttony-class {
+		text-align:center;
+		color:var(--col1);
+		font-family:'pixel-font' ;
+		align-content:center;
+		position:fixed;
+		background-color:var(--col3);
+		border:calc(var(--pixel-size)/3) solid var(--col4);
+		width:170px;
+		height:calc(var(--pixel-size)*3);
+		left:35%;
+		transform:translate(-100%, -40%) scale(2)
+	}
+	.buttony-class:hover {
+		background-color:#724254;
+		border:calc(var(--pixel-size)/3) solid var(--col3);
+		cursor:pointer;
+	}
+
+	#newsbox {
+		position:fixed;
+		right:20%;
+		top:60%;
+		transform:translate(-50%, -50%) scale(6);
+		background-image: url("../assets/static/News\ Box.png");
+		width:59px;
+		height:82px;
+		image-rendering: pixelated;
+	}
+	#newsposts {
+		position:fixed;
+		width:110%;
+		height:80%;
+		overflow:scroll;
+		overflow-x:hidden;
+		transform:translate(2.5%,20%);
+		scrollbar-width:thin;
+	}
+
+	.post {
+		position:relative;
+		text-align:left;
+		width:90%;
+		padding:1px;
+		margin:1px;
+		height:fit-content;
+		text-wrap: wrap;
+		font-size:20%;
+		font-family:"pixel-font";
+		background-color: var(--col1);
+		border: 1px solid #724254
+	}
+</style>
+<head>
+
+</head>
+<body style="text-align:center;">
+    <div id="left"></div>
+    <div id="right"></div>
+    <div id="top"></div>
+    <div id="bottom"></div>
+
+	<img id="topleftflower"src="../assets/static/flower.png">
+	<img id="toprightflower"src="../assets/static/flower.png">
+	<img id="bottomleftflower"src="../assets/static/flower.png">
+	<img id="bottomrightflower"src="../assets/static/flower.png">
+
+	<img id="glorbenialabel"src="../assets/static/glorb.png">
+
+	<img id="discordimg"src="../assets/static/Discord.png">
+	<img id="documentimg"src="../assets/static/Document.png">
+	<img id="bankimg"src="../assets/static/Bank.png">
+	<img id="mailimg"src="../assets/static/Mail.png">
+
+	<button class="buttony-class" style="top:35%;">Sign Up!   </button>
+	<button  class="buttony-class" style="top:51.67%;">Visit Bank   </button>
+	<button class="buttony-class" onclick="window.open('https://discord.com')" style="top:68.33%;">Our Discord    </button> <!--ADD LINK FOR DISCORD INVITE-->
+	<button  class="buttony-class" onclick="window.open('mailto:webstate.mail@gmail.com')" style="top:85%;">Contact Us!   </button>
+
+	<div id="newsbox">
+		<div id="newsposts">
+			<div class="post"><h>HELLO</h></div>
+			<div class="post"><h>HELLO</h></div>
+			<div class="post"><h>HELLO</h></div>
+			<div class="post"><h>HELLO</h></div>
+			<div class="post"><h>HELLO</h></div>
+			<div class="post"><h>HELLO</h></div>
+			<div class="post"><h>HELLO</h></div>
+		</div>
+	</div>
+</body>
+<script>
+	var sound = new Audio("../assets/static/Bark.wav");
+	sound.load()
+	document.getElementById("glorbenialabel").addEventListener("click", () => {
+		sound.play()
+	});
+</script>
+</html>
