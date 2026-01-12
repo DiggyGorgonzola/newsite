@@ -145,7 +145,7 @@
 	<title>Glorbenia Website</title>
 	<link rel="icon" type="image/png" href="../assets/static/glorbenia-flag.png">
 </head>
-<body style="text-align:center;">
+<body onload="onload()" style="text-align:center;">
     <div id="left"></div>
     <div id="right"></div>
     <div id="top"></div>
@@ -186,5 +186,18 @@
 	document.getElementById("glorbenialabel").addEventListener("click", () => {
 		sound.play()
 	});
+
+	function onload() {
+		const time = Date.getHours()
+		if (time > 22 || time < 6) {
+			/*javascript set elements*/
+			body.setProperty("--col1") = "#000000";
+			body.setProperty("--col2") = "#000000";
+			body.setProperty("--col3") = "#000000";
+			body.setProperty("--col4") = "#000000";
+		};
+	};
+	
 </script>
 </html>
+
