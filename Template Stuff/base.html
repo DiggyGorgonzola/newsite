@@ -140,6 +140,7 @@
 	<img id="documentimg"src="Document.png">
 	<img id="bankimg"src="Bank.png">
 	<img id="mailimg"src="Mail.png">
+	<audio src="Bark.wav">Hi</audio>
 
 	<button class="buttony-class" style="top:35%;">Sign Up!   </button>
 	<button  class="buttony-class" style="top:51.67%;">Visit Bank   </button>
@@ -150,4 +151,12 @@
 		<div id="newsposts"></div>
 	</div>
 </body>
+<script>
+	document.getElementById("glorbenialabel").addEventListener("click", () => {
+		var sound = new Audio();
+		sound.src = "Bark.wav";
+		sound.load()
+		sound.play()
+	});
+</script>
 </html>
