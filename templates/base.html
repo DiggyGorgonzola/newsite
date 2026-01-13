@@ -6,8 +6,11 @@
 		--col2: #c08d70; /*#c08d70*/
 		--col3: #C18C72; /*#C18C72*/
 		--col4: #724254; /*#724254*/
+		--col5: #fcebb7; /*#fcebb7*/
         background-color: var(--col1);
 		--pixel-size: 10px;
+		--bc1: 50%;
+		--bc1point0: 55%;
     }
 	@font-face {
 		font-family: 'pixel-font';
@@ -16,7 +19,7 @@
 		font-style: normal;
 	}
     #top, #bottom, #left, #right {
-		background: var(--col2);
+		background: var(--col3);
 		position: fixed;
 		z-index: 0;
 	}
@@ -74,7 +77,7 @@
 		z-index:3;
 		image-rendering:pixelated;
 		transform: translate(-50%, -50%) scale(5.5);
-		left:40%;
+		left:var(--bc1point0);
 	}
 	#documentimg {
 		top:35%;
@@ -90,7 +93,7 @@
 	}
 	.buttony-class {
 		text-align:center;
-		color:var(--col1);
+		color:var(--col5);
 		font-family:'pixel-font' ;
 		align-content:center;
 		position:fixed;
@@ -98,7 +101,7 @@
 		border:calc(var(--pixel-size)/3) solid var(--col4);
 		width:170px;
 		height:calc(var(--pixel-size)*3);
-		left:35%;
+		left:var(--bc1);
 		transform:translate(-100%, -40%) scale(2)
 	}
 	.buttony-class:hover {
@@ -119,24 +122,31 @@
 	}
 	#newsposts {
 		position:fixed;
-		width:90%;
+		width:120%;
 		height:80%;
 		overflow:hidden;
+		overflow-y:scroll;
 		transform:translate(2.5%,20%);
 	}
 
 	.post {
 		position:relative;
 		text-align:left;
-		width:100%;
+		width:90%;
 		padding:1px;
 		margin:1px;
 		height:fit-content;
 		text-wrap: wrap;
 		font-size:20%;
 		font-family:"pixel-font";
-		background-color: var(--col1);
+		background-color: var(--col5);
 		border: 1px solid #724254
+	}
+
+	#credits {
+		position:absolute;
+		left:2%;
+		bottom:1.1%;
 	}
 </style>
 <head>
@@ -144,6 +154,7 @@
 	<link rel="icon" type="image/png" href="../assets/static/glorbenia-flag.png">
 </head>
 <body onload="onload()" style="text-align:center;">
+	<h id="credits">Credits: Walmart Bag - Pixel art. Diggy - Programming</h>
     <div id="left"></div>
     <div id="right"></div>
     <div id="top"></div>
@@ -161,11 +172,12 @@
 	<img id="bankimg"src="../assets/static/Bank.png">
 	<img id="mailimg"src="../assets/static/Mail.png">
 
+
+	<!-- column-->
 	<button class="buttony-class" style="top:35%;">Sign Up!   </button>
 	<button  class="buttony-class" style="top:51.67%;">Visit Bank   </button>
 	<button class="buttony-class" onclick="window.open('https://discord.com')" style="top:68.33%;">Our Discord    </button> <!--ADD LINK FOR DISCORD INVITE-->
 	<button  class="buttony-class" onclick="window.open('mailto:webstate.mail@gmail.com')" style="top:85%;">Contact Us!   </button>
-
 	<div id="newsbox">
 		<div id="newsposts">
 			<div class="post"><h>HELLO</h></div>
@@ -186,13 +198,13 @@
 	});
 
 	function onload() {
-		const time = Date.getHours()
-		if (time > 22 || time < 6) {
+		const time = new Date();
+		if (time.getHours() > 22 || time.getHours < 6) {
 			/*javascript set elements*/
-			body.setProperty("--col1") = "#000000";
-			body.setProperty("--col2") = "#000000";
-			body.setProperty("--col3") = "#000000";
-			body.setProperty("--col4") = "#000000";
+			document.body.style.setProperty("--col1","#002469");
+			document.body.style.setProperty("--col2","#4F3202");
+			document.body.style.setProperty("--col3","#2E1900");
+			document.body.style.setProperty("--col4","#fcebb7");
 		};
 	};
 	
