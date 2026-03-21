@@ -15,7 +15,7 @@
     }
 	@font-face {
 		font-family: 'pixel-font';
-		src: url({{ url_for('static', filename='assets/PixelatedElegance.ttf') }}) format('truetype'); 
+		src: {{ url_for('static', filename='assets/PixelatedElegance.ttf') }} format('truetype'); 
 		text-shadow: 0 0 1px black;
 	}
     #top, #bottom, #left, #right {
@@ -116,7 +116,7 @@
 		right:20%;
 		top:60%;
 		transform:translate(-50%, -50%) scale(8);
-		background-image: url({{ url_for('static', filename='assets/News\ Box.png') }});
+		background-image: {{ url_for('static', filename='assets/News\ Box.png') }};
 		width:59px;
 		height:82px;
 		image-rendering: pixelated;
