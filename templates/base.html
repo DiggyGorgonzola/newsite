@@ -15,7 +15,7 @@
     }
 	@font-face {
 		font-family: 'pixel-font';
-		src: {{ url_for('static', filename='assets/PixelatedElegance.ttf') }} format('truetype'); 
+		src: url("{{ url_for('static', filename='assets/PixelatedElegance.ttf') }}") format('truetype'); 
 		text-shadow: 0 0 1px black;
 	}
     #top, #bottom, #left, #right {
