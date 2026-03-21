@@ -7,16 +7,16 @@
 		--col3: #C18C72; /*#C18C72*/
 		--col4: #724254; /*#724254*/
 		--col5: #fcebb7; /*#fcebb7*/
+		--negative: black;
         background-color: var(--col1);
 		--pixel-size: 10px;
-		--bc1: 50%;
-		--bc1point0: 55%;
+		--bc1: 40%;
+		--bc1point0: 50%;
     }
 	@font-face {
 		font-family: 'pixel-font';
 		src: url('../assets/static/PixelatedElegance.ttf') format('truetype'); 
-		font-weight: normal;
-		font-style: normal;
+		text-shadow: 0 0 1px black;
 	}
     #top, #bottom, #left, #right {
 		background: var(--col3);
@@ -25,14 +25,14 @@
 	}
 	#left, #right {
 		top: 0; bottom: 0;
-		width: calc(var(--pixel-size)*1.25);
+		width: calc(var(--pixel-size)*2.6);
 		}
 		#left { left: 0; }
 		#right { right: 0; }
 		
 	#top, #bottom {
 		left: 0; right: 0;
-		height: calc(var(--pixel-size)*1.25);
+		height: calc(var(--pixel-size)*2.6);
 		}
 		#top { top: 0; }
 		#bottom { bottom: 0; }
@@ -40,8 +40,8 @@
 	#topleftflower, #toprightflower, #bottomleftflower, #bottomrightflower {
 		position:fixed;
 		z-index: 1;
-		width: calc(var(--pixel-size)*4);
-		height: calc(var(--pixel-size)*4);
+		width: calc(var(--pixel-size)*8);
+		height: calc(var(--pixel-size)*8);
 		image-rendering:pixelated;
 	}
 		#topleftflower {
@@ -76,7 +76,7 @@
 		position:fixed;
 		z-index:3;
 		image-rendering:pixelated;
-		transform: translate(-50%, -50%) scale(5.5);
+		transform: translate(-40%, -50%) scale(7);
 		left:var(--bc1point0);
 	}
 	#documentimg {
@@ -98,14 +98,15 @@
 		align-content:center;
 		position:fixed;
 		background-color:var(--col3);
-		border:calc(var(--pixel-size)/3) solid var(--col4);
-		width:170px;
-		height:calc(var(--pixel-size)*3);
+		border:calc(var(--pixel-size)/2) solid var(--col4);
+		width:340px;
+		height:calc(var(--pixel-size)*6);
 		left:var(--bc1);
-		transform:translate(-100%, -40%) scale(2)
+		transform:translate(-100%, -40%) scale(2);
+		font-size:200%;
 	}
 	.buttony-class:hover {
-		background-color:#724254;
+		background-color:var(--col4);
 		border:calc(var(--pixel-size)/3) solid var(--col3);
 		cursor:pointer;
 	}
@@ -114,15 +115,27 @@
 		position:fixed;
 		right:20%;
 		top:60%;
-		transform:translate(-50%, -50%) scale(6);
+		transform:translate(-50%, -50%) scale(8);
 		background-image: url("../assets/static/News\ Box.png");
 		width:59px;
 		height:82px;
 		image-rendering: pixelated;
 	}
+	#newsposts::-webkit-scrollbar {
+		width: 4px;
+		height: 8px;
+		border-radius: 2px;
+		background-color: var(--col2); /* or add it to the track */
+	}
+
+	/* Add a thumb */
+	#newsposts::-webkit-scrollbar-thumb {
+		background: var(--col4);
+		border-radius: 2px;
+	}
 	#newsposts {
 		position:fixed;
-		width:120%;
+		width:100%;
 		height:80%;
 		overflow:hidden;
 		overflow-y:scroll;
@@ -131,22 +144,37 @@
 
 	.post {
 		position:relative;
-		text-align:left;
+		text-align:center;
 		width:90%;
 		padding:1px;
 		margin:1px;
 		height:fit-content;
-		text-wrap: wrap;
-		font-size:20%;
+		font-size:.15cqw;
 		font-family:"pixel-font";
 		background-color: var(--col5);
-		border: 1px solid #724254
+		border: 1px solid var(--col4)
 	}
-
-	#credits {
-		position:absolute;
-		left:2%;
-		bottom:1.1%;
+	.post-date {
+		text-align:left;
+		font-size:smaller;
+		font-family:"pixel-font";
+		color: var(--col2);
+		padding:1px;
+		padding-bottom:0px;
+		margin:1px;
+	}
+	.post-title {
+		position:relative;
+		text-align:center;
+		width:90%;
+		padding:1px;
+		padding-top:0px;
+		margin:1px;
+		height:fit-content;
+		font-size:.05cqw;
+		font-family:"pixel-font";
+		background-color: var(--col3);
+		border: 1px solid var(--col4)
 	}
 </style>
 <head>
@@ -154,7 +182,10 @@
 	<link rel="icon" type="image/png" href="../assets/static/glorbenia-flag.png">
 </head>
 <body onload="onload()" style="text-align:center;">
-	<h id="credits">Credits: Walmart Bag - Pixel art. Diggy - Programming</h>
+	<!-- credits -->
+	<h id="credits" style="position:fixed;left:5%;top:95%;color:var(--negative);">Credits: Walmart Bag - Pixel art. Diggy - Programming</h>
+
+	<!-- border -->
     <div id="left"></div>
     <div id="right"></div>
     <div id="top"></div>
@@ -165,31 +196,36 @@
 	<img id="bottomleftflower"src="../assets/static/flower.png">
 	<img id="bottomrightflower"src="../assets/static/flower.png">
 
+
+	<!-- big label -->
 	<img id="glorbenialabel"src="../assets/static/Glorb.png">
 
+
+	<!-- icons -->
 	<img id="discordimg"src="../assets/static/Discord.png">
 	<img id="documentimg"src="../assets/static/Document.png">
-	<img id="bankimg"src="../assets/static/Bank.png">
+	<!--<img id="bankimg"src="../assets/static/Bank.png"> finish bank 'https://glorbank.onrender.com' -->
 	<img id="mailimg"src="../assets/static/Mail.png">
 
 
 	<!-- column-->
-	<button class="buttony-class" style="top:35%;">Sign Up!   </button>
-	<button  class="buttony-class" style="top:51.67%;">Visit Bank   </button>
-	<button class="buttony-class" onclick="window.open('https://discord.com')" style="top:68.33%;">Our Discord    </button> <!--ADD LINK FOR DISCORD INVITE-->
+	<button class="buttony-class" onclick="window.open('https://discord.com')" style="top:35%;">Sign Up!   </button>
+	<button  class="buttony-class" style="top:51.67%;background-color:var(--col4);border-color:var(--col2)">Coming soon >:3   </button> <!-- finish bank 'https://glorbank.onrender.com' -->
+	<button class="buttony-class" onclick="window.open('https://discord.gg/3BEMZgGKVX')" style="top:68.33%;">Our Discord    </button>
 	<button  class="buttony-class" onclick="window.open('mailto:webstate.mail@gmail.com')" style="top:85%;">Contact Us!   </button>
+
+	<!-- news box -->
 	<div id="newsbox">
 		<div id="newsposts">
-			<div class="post"><h>HELLO</h></div>
-			<div class="post"><h>HELLO</h></div>
-			<div class="post"><h>HELLO</h></div>
-			<div class="post"><h>HELLO</h></div>
-			<div class="post"><h>HELLO</h></div>
-			<div class="post"><h>HELLO</h></div>
-			<div class="post"><h>HELLO</h></div>
+			<div class="post">
+				<div class="post-date">Mar. 21, 2026</div>
+				<div class="post-title">UWG website is LIVE!</div><br>
+				Join our Discord server! (<a href='https://discord.gg/3BEMZgGKVX' target="_blank">discord.gg/3BEMZgGKVX</a>)
+			</div>
 		</div>
 	</div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/textfit@2.4.0/textFit.min.js"></script>
 <script>
 	var sound = new Audio("../assets/static/Bark.wav");
 	sound.load()
@@ -201,11 +237,19 @@
 		const time = new Date();
 		if (time.getHours() > 22 || time.getHours < 6) {
 			/*javascript set elements*/
-			document.body.style.setProperty("--col1","#002469");
-			document.body.style.setProperty("--col2","#4F3202");
-			document.body.style.setProperty("--col3","#2E1900");
-			document.body.style.setProperty("--col4","#fcebb7");
+			document.body.style.setProperty("--col1","#8b6d9c");
+			document.body.style.setProperty("--col2","#494d7e");
+			document.body.style.setProperty("--col3","#494d7e");
+			document.body.style.setProperty("--col4","#272744");
+			document.body.style.setProperty("--col5","#c69fa5");
+			document.body.style.setProperty("--negative","#FFF");
+
+			document.getElementById("toprightflower").src = "../assets/static/DarkLeaf.png";
+			document.getElementById("topleftflower").src = "../assets/static/DarkLeaf.png";
+			document.getElementById("bottomrightflower").src = "../assets/static/DarkLeaf.png";
+			document.getElementById("bottomleftflower").src = "../assets/static/DarkLeaf.png";
 		};
+		textFit(document.querySelectorAll(".post-title"))
 	};
 	
 </script>
