@@ -226,7 +226,7 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/textfit@2.4.0/textFit.min.js"></script>
 <script>
-	var sound = new Audio({{ url_for('static', filename='assets/Bark.wav') });
+	var sound = new Audio({{ url_for('static', filename='assets/Bark.wav') }});
 	sound.load()
 	document.getElementById("glorbenialabel").addEventListener("click", () => {
 		sound.play()
