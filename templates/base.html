@@ -15,7 +15,7 @@
     }
 	@font-face {
 		font-family: 'pixel-font';
-		src: url('../assets/static/PixelatedElegance.ttf') format('truetype'); 
+		src: url({{ url_for('static', filename='assets/PixelatedElegance.ttf') }}) format('truetype'); 
 		text-shadow: 0 0 1px black;
 	}
     #top, #bottom, #left, #right {
@@ -116,7 +116,7 @@
 		right:20%;
 		top:60%;
 		transform:translate(-50%, -50%) scale(8);
-		background-image: url("../assets/static/News\ Box.png");
+		background-image: url({{ url_for('static', filename='assets/News\ Box.png') }});
 		width:59px;
 		height:82px;
 		image-rendering: pixelated;
@@ -178,7 +178,7 @@
 </style>
 <head>
 	<title>Glorbenia Website</title>
-	<link rel="icon" type="image/png" href="../assets/static/glorbenia-flag.png">
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/glorbenia-flag.png) }}">
 </head>
 <body onload="onload()" style="text-align:center;">
 	<!-- credits -->
@@ -190,21 +190,21 @@
     <div id="top"></div>
     <div id="bottom"></div>
 
-	<img id="topleftflower"src="../assets/static/flower.png">
-	<img id="toprightflower"src="../assets/static/flower.png">
-	<img id="bottomleftflower"src="../assets/static/flower.png">
-	<img id="bottomrightflower"src="../assets/static/flower.png">
+	<img id="topleftflower"src="{{ url_for('static', filename='assets/flower.png) }}">
+	<img id="toprightflower"src="{{ url_for('static', filename='assets/flower.png) }}">
+	<img id="bottomleftflower"src="{{ url_for('static', filename='assets/flower.png) }}">
+	<img id="bottomrightflower"src="{{ url_for('static', filename='assets/flower.png) }}">
 
 
 	<!-- big label -->
-	<img id="glorbenialabel"src="../assets/static/Glorb.png">
+	<img id="glorbenialabel"src="{{ url_for('static', filename='assets/Glorb.png) }}">
 
 
 	<!-- icons -->
-	<img id="discordimg"src="../assets/static/Discord.png">
-	<img id="documentimg"src="../assets/static/Document.png">
+	<img id="discordimg"src="{{ url_for('static', filename='assets/Discord.png) }}">
+	<img id="documentimg"src="{{ url_for('static', filename='assets/Document.png) }}">
 	<!--<img id="bankimg"src="../assets/static/Bank.png"> finish bank 'https://glorbank.onrender.com' -->
-	<img id="mailimg"src="../assets/static/Mail.png">
+	<img id="mailimg"src="{{ url_for('static', filename='assets/Mail.png) }}">
 
 
 	<!-- column-->
@@ -243,10 +243,10 @@
 			document.body.style.setProperty("--col5","#c69fa5");
 			document.body.style.setProperty("--negative","#FFF");
 
-			document.getElementById("toprightflower").src = "../assets/static/DarkLeaf.png";
-			document.getElementById("topleftflower").src = "../assets/static/DarkLeaf.png";
-			document.getElementById("bottomrightflower").src = "../assets/static/DarkLeaf.png";
-			document.getElementById("bottomleftflower").src = "../assets/static/DarkLeaf.png";
+			document.getElementById("toprightflower").src = "{{ url_for('static', filename='assets/DarkLeaf.png) }}";
+			document.getElementById("topleftflower").src = "{{ url_for('static', filename='assets/DarkLeaf.png) }}";
+			document.getElementById("bottomrightflower").src = "{{ url_for('static', filename='assets/DarkLeaf.png) }}";
+			document.getElementById("bottomleftflower").src = "{{ url_for('static', filename='assets/DarkLeaf.png) }}";
 		};
 		textFit(document.querySelectorAll(".post-title"))
 	};
