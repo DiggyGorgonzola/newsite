@@ -190,21 +190,21 @@
     <div id="top"></div>
     <div id="bottom"></div>
 
-	<img id="topleftflower" src="{{ url_for('static', filename='assets/flower.png) }}">
-	<img id="toprightflower" src="{{ url_for('static', filename='assets/flower.png) }}">
-	<img id="bottomleftflower" src="{{ url_for('static', filename='assets/flower.png) }}">
-	<img id="bottomrightflower" src="{{ url_for('static', filename='assets/flower.png) }}">
+	<img id="topleftflower" src="{{ url_for('static', filename='assets/flower.png') }}">
+	<img id="toprightflower" src="{{ url_for('static', filename='assets/flower.png') }}">
+	<img id="bottomleftflower" src="{{ url_for('static', filename='assets/flower.png') }}">
+	<img id="bottomrightflower" src="{{ url_for('static', filename='assets/flower.png') }}">
 
 
 	<!-- big label -->
-	<img id="glorbenialabel"src="{{ url_for('static', filename='assets/Glorb.png) }}">
+	<img id="glorbenialabel"src="{{ url_for('static', filename='assets/Glorb.png') }}">
 
 
 	<!-- icons -->
-	<img id="discordimg"src="{{ url_for('static', filename='assets/Discord.png) }}">
-	<img id="documentimg"src="{{ url_for('static', filename='assets/Document.png) }}">
+	<img id="discordimg"src="{{ url_for('static', filename='assets/Discord.png') }}">
+	<img id="documentimg"src="{{ url_for('static', filename='assets/Document.png') }}">
 	<!--<img id="bankimg"src="../assets/static/Bank.png"> finish bank 'https://glorbank.onrender.com' -->
-	<img id="mailimg"src="{{ url_for('static', filename='assets/Mail.png) }}">
+	<img id="mailimg"src="{{ url_for('static', filename='assets/Mail.png') }}">
 
 
 	<!-- column-->
@@ -226,7 +226,7 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/textfit@2.4.0/textFit.min.js"></script>
 <script>
-	var sound = new Audio("../assets/static/Bark.wav");
+	var sound = new Audio({{ url_for('static', filename='assets/Bark.wav') });
 	sound.load()
 	document.getElementById("glorbenialabel").addEventListener("click", () => {
 		sound.play()
@@ -243,10 +243,10 @@
 			document.body.style.setProperty("--col5","#c69fa5");
 			document.body.style.setProperty("--negative","#FFF");
 
-			document.getElementById("toprightflower").src = "{{ url_for('static', filename='assets/DarkLeaf.png) }}";
-			document.getElementById("topleftflower").src = "{{ url_for('static', filename='assets/DarkLeaf.png) }}";
-			document.getElementById("bottomrightflower").src = "{{ url_for('static', filename='assets/DarkLeaf.png) }}";
-			document.getElementById("bottomleftflower").src = "{{ url_for('static', filename='assets/DarkLeaf.png) }}";
+			document.getElementById("toprightflower").src = "{{ url_for('static', filename='assets/DarkLeaf.png') }}";
+			document.getElementById("topleftflower").src = "{{ url_for('static', filename='assets/DarkLeaf.png') }}";
+			document.getElementById("bottomrightflower").src = "{{ url_for('static', filename='assets/DarkLeaf.png') }}";
+			document.getElementById("bottomleftflower").src = "{{ url_for('static', filename='assets/DarkLeaf.png') }}";
 		};
 		textFit(document.querySelectorAll(".post-title"))
 	};
