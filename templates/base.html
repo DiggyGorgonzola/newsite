@@ -10,8 +10,8 @@
 		--negative: black;
         background-color: var(--col1);
 		--pixel-size: 10px;
-		--bc1: 40%;
-		--bc1point0: 50%;
+		--bc1: 27%;
+		--bc1point0: 31%;
     }
 	@font-face {
 		font-family: 'pixel-font';
@@ -72,24 +72,56 @@
 		transform: translate(-50%, -50%) scale(6);
 		left:auto;
 	}
+	#flag1 {
+		position:fixed;
+		z-index:1;
+		image-rendering:pixelated;
+		top:10%;
+		border:10px solid black;
+		transform: translate(-50%, -50%) scale(.3);
+		left:20%;
+	}
+	#flag2 {
+		position:fixed;
+		z-index:1;
+		image-rendering:pixelated;
+		top:10%;
+		border:10px solid black;
+		transform: translate(-50%, -50%) scale(.3);
+		left:80%;
+	}
+	#glorbenia-info-panel {
+		position:fixed;
+		z-index:1;
+		image-rendering:pixelated;
+		top:20%;
+		height:20%;
+		width:50%;
+		left:5%;
+		background-color:var(--col3);
+		border:calc(var(--pixel-size)) solid var(--col4);
+		padding:3px;
+		color:var(--negative);
+		overflow-y: auto;
+	}
 	#discordimg, #documentimg, #bankimg, #mailimg {
 		position:fixed;
 		z-index:3;
 		image-rendering:pixelated;
-		transform: translate(-40%, -50%) scale(7);
+		transform: translate(-40%, -30%) scale(5.5);
 		left:var(--bc1point0);
 	}
 	#documentimg {
-		top:35%;
+		top:50%;
 	}
 	#bankimg {
-		top:51.67%;
+		top:61.25%;
 	}
 	#discordimg {
-		top:68.33%;
+		top:72.5%;
 	}
 	#mailimg {
-		top:85%;
+		top:84%;
 	}
 	.buttony-class {
 		text-align:center;
@@ -102,7 +134,7 @@
 		width:340px;
 		height:calc(var(--pixel-size)*6);
 		left:var(--bc1);
-		transform:translate(-100%, -40%) scale(2);
+		transform:translate(-100%, -40%) scale(1.5);
 		font-size:200%;
 	}
 	.buttony-class:hover {
@@ -151,7 +183,8 @@
 		font-size:.15cqw;
 		font-family:"pixel-font";
 		background-color: var(--col5);
-		border: 1px solid var(--col4)
+		border: 1px solid var(--col4);
+		align-items:center;
 	}
 	.post-date {
 		text-align:left;
@@ -167,10 +200,9 @@
 		text-align:center;
 		width:90%;
 		padding:1px;
-		padding-top:0px;
 		margin:1px;
 		height:fit-content;
-		font-size:.05cqw;
+		font-size:1;
 		font-family:"pixel-font";
 		background-color: var(--col3);
 		border: 1px solid var(--col4)
@@ -196,8 +228,22 @@
 	<img id="bottomrightflower" src="{{ url_for('static', filename='assets/flower.png') }}">
 
 
-	<!-- big label -->
+	<!-- big label and flags -->
+	<img id="flag1" src="{{ url_for('static',filename='assets/glorbenia-flag.png') }}">
 	<img id="glorbenialabel"src="{{ url_for('static', filename='assets/Glorb.png') }}">
+	<img id="flag2" src="{{ url_for('static',filename='assets/glorbenia-flag.png') }}">
+
+	<!-- info panel -->
+	 <div id="glorbenia-info-panel">
+		<div class="post-title" style="position:sticky;top:0;border: 5px solid var(--col1);width:50%;font-family:'pixel-font';font-size:30px;background-color:var(--col4);transform:translate(50%,0%);color:var(--negative);">~GLORBENIA~</div><br>
+		<h style="font-family:'pixel-font';">The United Webstates of Glorbenia is a primarily internet-based micronation centered in Texas. <br><br> We have over 100 members as of March 2026, here's what we have to say about our community!</h><br><br><br>
+		<h style="font-family:'pixel-font';">"Homosexuality" -Stopside, Senator</h><br><br><br>
+		<h style="font-family:'pixel-font';">"super awesome and awesome" -G41-CC</h><br><br><br>
+		<h style="font-family:'pixel-font';">"Not enough McDonald's" -Intergaylactic Superqueer, President of Glorbenia</h><br><br><br>
+		<h style="font-family:'pixel-font';">"This server is a place that has people and it is a place that sometimes doesn't have people it is a place place is a place server place is a server server is a is a" -Sylv</h><br><br><br>
+		<h style="font-family:'pixel-font';">"this coutnry was made for the sole purpose of a shitpost" -Cupbitch</h><br><br><br>
+
+	 </div>
 
 
 	<!-- icons -->
@@ -208,14 +254,19 @@
 
 
 	<!-- column-->
-	<button class="buttony-class" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdJwTBci4Js_L1AR_4BHIZ3yRpGQrjaQMy48UfdPArMviqhgw/viewform?usp=publish-editor')" style="top:35%;">Sign Up!   </button>
-	<button  class="buttony-class" style="top:51.67%;background-color:var(--col4);border-color:var(--col2);border:calc(var(--pixel-size)/3) solid var(--col3);">Coming soon >:3   </button> <!-- finish bank 'https://glorbank.onrender.com' -->
-	<button class="buttony-class" onclick="window.open('https://discord.gg/3BEMZgGKVX')" style="top:68.33%;">Our Discord    </button>
-	<button  class="buttony-class" onclick="window.open('mailto:webstate.mail@gmail.com')" style="top:85%;">Contact Us!   </button>
+	<button class="buttony-class" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdJwTBci4Js_L1AR_4BHIZ3yRpGQrjaQMy48UfdPArMviqhgw/viewform?usp=publish-editor')" style="top:50%;">Sign Up!   </button>
+	<button  class="buttony-class" style="top:61.25%;background-color:var(--col4);border-color:var(--col2);border:calc(var(--pixel-size)/3) solid var(--col3);">Coming soon >:3   </button> <!-- finish bank 'https://glorbank.onrender.com' -->
+	<button class="buttony-class" onclick="window.open('https://discord.gg/3BEMZgGKVX')" style="top:72.5%;">Our Discord    </button>
+	<button  class="buttony-class" onclick="window.open('mailto:webstate.mail@gmail.com')" style="top:83.75%;">Contact Us!   </button>
 
 	<!-- news box -->
 	<div id="newsbox">
 		<div id="newsposts">
+			<div class="post">
+				<div class="post-date">Mar. 29, 2026</div>
+				<div class="post-title">UWG site update</div><br>
+				Added an info panel. Moved buttons around.
+			</div>
 			<div class="post">
 				<div class="post-date">Mar. 21, 2026</div>
 				<div class="post-title">UWG website is LIVE!</div><br>
@@ -224,17 +275,16 @@
 		</div>
 	</div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/textfit@2.4.0/textFit.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/textfit@2.4.0/textFit.min.js"></script>-->
 <script>
-	var sound = new Audio({{ url_for('static', filename='assets/Bark.wav') }});
+	var sound = new Audio("{{ url_for('static', filename='assets/Bark.wav') }}");
 	sound.load()
 	document.getElementById("glorbenialabel").addEventListener("click", () => {
 		sound.play()
 	});
-
 	function onload() {
 		const time = new Date();
-		if (time.getHours() > 22 || time.getHours < 6) {
+		if (time.getHours() > 22 || time.getHours < 6 || false) {
 			/*javascript set elements*/
 			document.body.style.setProperty("--col1","#8b6d9c");
 			document.body.style.setProperty("--col2","#494d7e");
